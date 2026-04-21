@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -15,14 +14,18 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
 });
 
-// ✅ API KEY DIRECTLY HARDCODED - YAHI SE KAAM KAREGA
-const GROQ_API_KEY = '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';
+// ✅ API key .env file se load karo (NOT hardcoded)
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 app.post('/api/chat', async (req, res) => {
     const { message } = req.body;
     
     if (!message) {
         return res.status(400).json({ error: 'Message is required' });
+    }
+
+    if (!GROQ_API_KEY) {
+        return res.status(500).json({ error: 'API key not configured' });
     }
 
     console.log('Using API Key:', GROQ_API_KEY.substring(0, 10) + '...');
@@ -61,5 +64,4 @@ app.post('/api/chat', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`✅ Server running on http://localhost:${PORT}`);
-    console.log(`✅ API Key loaded (hardcoded)`);
 });
