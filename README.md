@@ -48,3 +48,11 @@ cd smartchat-ai
 npm install
 cd backend
 node server.js
+### Environment Variables
+
+Create a `.env` file in the `backend` folder:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
+MONGODB_URI=your_mongodb_connection_string_here
+JWT_SECRET=your_jwt_secret_key_here
