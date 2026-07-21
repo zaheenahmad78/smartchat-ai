@@ -9,7 +9,7 @@ An enterprise-grade, production-ready AI chatbot powered by **Groq Llama 3.3 API
 
 ## 🌐 Live Demo
 
-👉 **[https://smartchat-ai-zeta.vercel.app](https://smartchat-ai-zeta.vercel.app)**
+https://smartchat-ai-zeta.vercel.app
 
 ---
 
